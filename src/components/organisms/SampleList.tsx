@@ -1,4 +1,4 @@
-import { Card, CardHeader, Grid, Skeleton } from "@mui/material";
+import { Card, CardHeader, Grid, Skeleton, Typography } from "@mui/material";
 
 import useUsers from "@/hooks/useUsers";
 
@@ -28,6 +28,10 @@ const SampleCardSkeleton = () => {
 const SampleList = () => {
   const { data, isLoading, isError } = useUsers();
 
+  if (data && !data.length && !isLoading) {
+    return <Typography textAlign="center">データが存在しません</Typography>;
+  }
+
   return (
     <Grid container spacing={2}>
       {isLoading &&
@@ -37,6 +41,7 @@ const SampleList = () => {
           </Grid>
         ))}
       {data &&
+        data.length &&
         !isLoading &&
         data.map((v) => (
           <Grid key={v.id} item xs={12} md={6}>
