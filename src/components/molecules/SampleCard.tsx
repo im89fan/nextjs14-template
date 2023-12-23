@@ -1,4 +1,4 @@
-import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Card, CardHeader, Avatar, IconButton } from "@mui/material";
 import { useMemo } from "react";
 
@@ -31,7 +31,7 @@ const SampleCard = ({ firstName, lastName, department }: Props) => {
         }
         action={
           <IconButton>
-            <EditIcon />
+            <DeleteIcon />
           </IconButton>
         }
         title={fullName}
