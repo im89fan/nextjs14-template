@@ -28,6 +28,12 @@ const SampleCardSkeleton = () => {
 const SampleList = () => {
   const { data, isLoading, isError } = useUsers();
 
+  if (isError) {
+    return (
+      <Typography textAlign="center">データの取得に失敗しました</Typography>
+    );
+  }
+
   if (data && !data.length && !isLoading) {
     return <Typography textAlign="center">データが存在しません</Typography>;
   }
