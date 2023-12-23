@@ -10,10 +10,11 @@ type Data = {
   };
 };
 
-export default function handler(
+export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse<Data[]>
 ) {
+  await new Promise((res) => setTimeout(res, 1500));
   res.status(200).json([
     {
       id: 1,
