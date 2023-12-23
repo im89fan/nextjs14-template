@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: template
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - .:/workspace
+    environment:
+      TZ: Asia/Tokyo
+      SERVER_SIDE_API_URL: "http://host.docker.internal:8000/api"

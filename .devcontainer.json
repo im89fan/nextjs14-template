@@ -1,0 +1,26 @@
+{
+  "name": "template",
+  "dockerComposeFile": ["docker-compose.yaml"],
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": [
+          "source.fixAll.eslint",
+          "source.addMissingImports"
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "npm i"
+}
