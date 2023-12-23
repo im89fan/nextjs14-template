@@ -21,6 +21,7 @@ const useGetApi = <T>(url: string) => {
     isError: isError,
     isLoading: isLoading,
     data: data,
+    setData: setData,
   };
 };
 

@@ -26,11 +26,13 @@ const SampleCardSkeleton = () => {
 };
 
 const SampleList = () => {
-  const { data, isLoading, isError } = useUsers();
+  const { data, setData, isLoading, isError } = useUsers();
 
   const handleClickDelete = (id: number) => {
     fetch(`/api/users/${id}`)
-      .then(() => {})
+      .then(() => {
+        data && setData([...data.filter((v) => v.id !== id)]);
+      })
       .catch(() => {});
   };
 
