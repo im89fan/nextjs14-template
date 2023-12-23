@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import useGetApi from "./useGetApi";
 
 interface DepartmentJson {
   id: number;
@@ -13,27 +13,7 @@ interface UserJson {
 }
 
 const useUsers = () => {
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState<UserJson[]>();
-
-  useEffect(() => {
-    fetch("/api/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsError(true);
-      });
-  }, []);
-
-  return {
-    isError: isError,
-    isLoading: isLoading,
-    data: data,
-  };
+  return useGetApi<UserJson[]>("/api/users");
 };
 
 export default useUsers;
