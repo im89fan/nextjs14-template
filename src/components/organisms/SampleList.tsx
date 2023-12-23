@@ -28,6 +28,12 @@ const SampleCardSkeleton = () => {
 const SampleList = () => {
   const { data, isLoading, isError } = useUsers();
 
+  const handleClickDelete = (id: number) => {
+    fetch(`/api/users/${id}`)
+      .then(() => {})
+      .catch(() => {});
+  };
+
   if (isError) {
     return (
       <Typography textAlign="center">データの取得に失敗しました</Typography>
@@ -55,6 +61,7 @@ const SampleList = () => {
               firstName={v.firstName}
               lastName={v.lastName}
               department={v.department.name}
+              onClick={() => handleClickDelete(v.id)}
             />
           </Grid>
         ))}

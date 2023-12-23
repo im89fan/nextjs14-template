@@ -12,9 +12,10 @@ interface Props {
   firstName: string;
   lastName: string;
   department: string;
+  onClick: () => void;
 }
 
-const SampleCard = ({ firstName, lastName, department }: Props) => {
+const SampleCard = ({ firstName, lastName, department, onClick }: Props) => {
   const fullName = useMemo(
     () => `${firstName} ${lastName}`,
     [firstName, lastName]
@@ -30,7 +31,7 @@ const SampleCard = ({ firstName, lastName, department }: Props) => {
           />
         }
         action={
-          <IconButton>
+          <IconButton onClick={onClick}>
             <DeleteIcon />
           </IconButton>
         }
