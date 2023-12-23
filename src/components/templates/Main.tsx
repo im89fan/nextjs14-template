@@ -44,7 +44,9 @@ const Main = ({ children }: Props) => {
           >
             <NavList />
           </Box>
-          <Box component="main">{children}</Box>
+          <Box component="main" width="100%">
+            {children}
+          </Box>
         </Box>
       </Container>
       <MobileMenu
