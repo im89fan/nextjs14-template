@@ -60,6 +60,7 @@ const SampleList = () => {
         data.map((v) => (
           <Grid key={v.id} item xs={12} md={6}>
             <SampleCard
+              id={v.id}
               firstName={v.firstName}
               lastName={v.lastName}
               department={v.department.name}

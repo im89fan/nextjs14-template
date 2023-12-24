@@ -1,5 +1,4 @@
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Card, CardHeader, Avatar, IconButton } from "@mui/material";
+import { Card, CardHeader, Avatar } from "@mui/material";
 import { useMemo } from "react";
 
 function stringAvatar(name: string) {
@@ -9,13 +8,14 @@ function stringAvatar(name: string) {
 }
 
 interface Props {
+  id: number;
   firstName: string;
   lastName: string;
   department: string;
   onClick: () => void;
 }
 
-const SampleCard = ({ firstName, lastName, department, onClick }: Props) => {
+const SampleCard = ({ firstName, lastName, department }: Props) => {
   const fullName = useMemo(
     () => `${firstName} ${lastName}`,
     [firstName, lastName]
@@ -29,11 +29,6 @@ const SampleCard = ({ firstName, lastName, department, onClick }: Props) => {
             {...stringAvatar(`${firstName} ${lastName}`)}
             sx={{ width: 56, height: 56 }}
           />
-        }
-        action={
-          <IconButton onClick={onClick}>
-            <DeleteIcon />
-          </IconButton>
         }
         title={fullName}
         subheader={department}
